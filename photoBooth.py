@@ -52,6 +52,6 @@ while True:
 		for j in range(3,0,-1):
 			countDown(j)
 		p.terminate()
-		#gp(captureAndDownload)
+		gp(captureAndDownload)
 	collage(saveLocation)
 	
