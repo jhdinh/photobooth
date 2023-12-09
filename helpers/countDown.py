@@ -5,7 +5,7 @@ from PyQt5.QtCore import Qt, QTimer
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QMainWindow, QApplication, QLabel
 
-def countDown(displayNum):
+def count_down(displayNum):
     app = QApplication(sys.argv)
 
     window = QMainWindow()

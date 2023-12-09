@@ -1,22 +1,23 @@
 import cups
 import sys
 
-
-def send_to_printer():
+def send_to_printer(filePath):
 	conn = cups.Connection()
 	printers = conn.getPrinters()
 
-	available_printers = list(printers.keys())
-	print_using = available_printers[3]
+	print_using = list(printers.keys())[0]
 	photo_dict = {"PageSize":"4x6", "MediaType":"photographic-glossy", "cupsPrintQuality":"High"}
 	plain_dict = {"PageSize":"Letter", "MediaType":"stationary", "cupsPrintQuality":"High"}
-	filename = "./test-5.png"
 
 	try:
 	    """Print the file."""
-	    conn.printFile(print_using, filename, "title", photo_dict)
+	    conn.printFile(print_using, filePath, "test", plain_dict)
 	except:
 	    sys.exit("Error")
+
+if __name__ == "__main__":
+	send_to_printer("test.txt")
+
 
 """
 Home_Inkjet dnssd://Brother%20MFC-J6530DW._ipp._tcp.local./?uuid=e3248000-80ce-11db-8000-3c2af40b2b01

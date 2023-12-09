@@ -1,4 +1,5 @@
 import pygame, sys
+import time
 from time import sleep
 from datetime import datetime
 from sh import gphoto2 as gp
@@ -6,10 +7,11 @@ import signal, os, subprocess
 import cv2
 from multiprocessing import Process
 sys.path.append("/home/jhdinh/Desktop/gphoto/helpers")
-from liveView import *
-from countDown import *
-from displayPushToStart import *
-from collage import *
+from liveView import live_view
+from countDown import count_down
+from displayPushToStart import display_push_to_start
+from collage import collage
+from sendToPrinter import send_to_printer
 
 
 shot_date = datetime.now().strftime("%Y-%m-%d")
@@ -89,7 +91,7 @@ def main_menu():
                     sys.exit()
                 # TODO: need to find a way to terminate live view after pictures are taken
                 # Commented process lines are for testing purposes
-                #p = Process(target=liveView)
+                #p = Process(target=live_view)
                 #p.start()
                 #time.sleep(2)
                 pygame.display.quit()
@@ -97,15 +99,17 @@ def main_menu():
                 for i in range(3):
                     shot_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     captureAndDownload = ["--filename", saveLocation + '/' + shot_time, "--capture-image-and-download"]
-                    p = Process(target=liveView)
+                    p = Process(target=live_view)
                     p.start()
                     time.sleep(2)
                     for j in range(3,0,-1):
-                        countDown(j)
+                        count_down(j)
                     p.terminate()
                     gp(captureAndDownload)
                 #p.terminate()
-                collage(saveLocation)
+                collage_filepath = collage(saveLocation)
+                send_to_printer(collage_filepath)
+                #TODO: put in screen that says image is printing
                 SCREEN = reInit()
         pygame.display.update()
 

@@ -1,6 +1,6 @@
 import cv2
 
-def displayPushToStart():
+def display_push_to_start():
     cv2.namedWindow('PushToStart', cv2.WINDOW_NORMAL)
     cv2.setWindowProperty('PushToStart', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
     image = cv2.imread("assets/PushToStart.png")

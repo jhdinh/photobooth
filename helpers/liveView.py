@@ -5,7 +5,7 @@ import sys
 # higher Timer = longer
 # subtracting less from timer = longer
 # not sure exactly what the ratio is, but cv2.waitKey holds execution for x milliseconds
-def liveView():
+def live_view():
 	
 	cv2.namedWindow('LiveView', cv2.WINDOW_NORMAL)
 	cv2.setWindowProperty('LiveView', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
