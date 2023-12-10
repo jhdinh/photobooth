@@ -1,19 +1,22 @@
-import pygame, sys
-import time
 from time import sleep
 from datetime import datetime
-from sh import gphoto2 as gp
-import signal, os, subprocess
-import cv2
 from multiprocessing import Process
-sys.path.append("/home/jhdinh/Desktop/gphoto/helpers")
-from liveView import live_view
+from sh import gphoto2 as gp
+
+
+from collage import collage
 from countDown import count_down
 from displayPushToStart import display_push_to_start
-from collage import collage
+from liveView import live_view
 from sendToPrinter import send_to_printer
 
 
+import cv2
+import pygame, sys
+import signal, os, subprocess
+import time
+
+sys.path.append("/home/jhdinh/Desktop/gphoto/helpers")
 shot_date = datetime.now().strftime("%Y-%m-%d")
 shot_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 picID = "PiPhotos"
