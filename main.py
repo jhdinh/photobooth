@@ -4,7 +4,7 @@ from multiprocessing import Process
 from sh import gphoto2 as gp
 
 
-from collage import collage
+from collage import collage, collageDouble
 from countDown import count_down
 from displayPushToStart import display_push_to_start
 from liveView import live_view
@@ -110,7 +110,7 @@ def main_menu():
                     p.terminate()
                     gp(captureAndDownload)
                 #p.terminate()
-                collage_filepath = collage(saveLocation)
+                collage_filepath = collageDouble(saveLocation)
                 send_to_printer(collage_filepath)
                 #TODO: put in screen that says image is printing
                 SCREEN = reInit()
