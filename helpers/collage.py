@@ -50,7 +50,7 @@ def collage(saveFolder):
 	template.paste(pic3, (p3_x, p3_y, p3_x + photo_w, p3_y + photo_h))
 	
 	collage_filepath = ('/home/jhdinh/Desktop/gphoto/collages/' + lastThreePhotos[2] + '.png')
-	template.save(test_filepath)
+	template.save(collage_filepath)
 	
 	return collage_filepath
 
@@ -60,7 +60,7 @@ def collageDouble(saveFolder):
 	files.sort()
 	lastThreePhotos = files[-3:]
 
-	template = Image.open('friendsmas.png')
+	template = Image.open('/home/jhdinh/Desktop/gphoto/assets/fatcousins.png')
 
 	"""
 	the template size is 1200 x 1800 px
@@ -112,7 +112,7 @@ def collageDouble(saveFolder):
 	template.paste(pic3, (p3_x2, p3_y, p3_x2 + photo_w, p3_y + photo_h))
 
 	collage_filepath = ('/home/jhdinh/Desktop/gphoto/collages/' + lastThreePhotos[2] + '.png')
-	template.save(test_filepath)
+	template.save(collage_filepath)
 	
 	return collage_filepath
 

@@ -11,7 +11,7 @@ def send_to_printer(filePath):
 
 	try:
 	    """Print the file."""
-	    conn.printFile(print_using, filePath, "test", plain_dict)
+	    conn.printFile(print_using, filePath, "test", photo_dict)
 	except:
 	    sys.exit("Error")
 

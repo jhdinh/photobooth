@@ -22,6 +22,7 @@ def live_view():
 	while True:
 		ret, frame = cap.read()
 		#timer -= 35
+		frame = cv2.flip(frame, 1)
 		frame = cv2.resize(frame, (1920, 1080))
 		cv2.imshow('LiveView', frame)
 		
